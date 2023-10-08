@@ -12,11 +12,22 @@ module.exports = {
   settings: { react: { version: "18.2" } },
   plugins: ["react", "react-hooks", "react-refresh"],
   rules: {
+    // React
     "react-refresh/only-export-components": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn", //useEffect không chứa depen -> báo warning
     "react/prop-types": 0, // không báo lỗi khi không chứa prop types
     "react/display-name": 0, // báo lỗi trong console vị trí display name -> không cần thiết
+
+    // MUI  --> ko import 3 level
+    "no-restricted-imports": [
+      "error",
+      {
+        patterns: ["@mui/*/*/*"],
+      },
+    ],
+
+    // Common
     "no-console": 1, // không chứa console khi build , chỉ dùng trong dev fix
     "no-lonely-if": 1, // không để lại if ở trong else
     "no-unused-vars": 1, // tạo biến var nhưng không dùng đến --> báo warning
