@@ -1,8 +1,8 @@
 ### MERN Stack
 
-### đây là phần frontend của dự án workflow được xây dựng trên mục đích học tập
+### đây là phần frontend của dự án workflow được xây dựng trên mục đích học tập qua mentor TrungQuanDev
 
-### Requirements - Thông tin của bộ Code Base này - Các phiên bản dưới đây : (Semantic Versioning)
+### - Thông tin của bộ Code Base này - Các phiên bản được liệt kê dưới đây : (Semantic Versioning)
 
 ```
 * nodejs = v18.16.0
