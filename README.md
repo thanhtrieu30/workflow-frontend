@@ -23,4 +23,8 @@
 * "eslint-plugin-react-refresh": "^0.3.4"
 ```
 
-### About Me - Thông tin về mình:
+### About Me - Thông tin về dự án :
+
+# Mô tả dự án :
+
+# Các chức năng chính của dự án bao gồm :
