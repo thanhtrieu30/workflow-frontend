@@ -1,9 +1,3 @@
-import Button from "@mui/material/Button";
-import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
-import ThreeDRotation from "@mui/icons-material/ThreeDRotation";
-import HomeIcon from "@mui/icons-material/Home";
-import { pink } from "@mui/material/colors";
-import Typography from "@mui/material/Typography";
 import { useColorScheme } from "@mui/material/styles";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
@@ -13,6 +7,7 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import NightsStayIcon from "@mui/icons-material/NightsStay";
 import SettingsBrightnessIcon from "@mui/icons-material/SettingsBrightness";
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 
 function ModeSelect() {
   const { mode, setMode } = useColorScheme();
@@ -51,43 +46,41 @@ function ModeSelect() {
   );
 }
 
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme();
-  return (
-    <Button
-      onClick={() => {
-        setMode(mode === "light" ? "dark" : "light");
-      }}
-    >
-      {mode === "light" ? "Turn dark" : "Turn light"}
-    </Button>
-  );
-}
-
 function App() {
   return (
-    <>
-      <ModeSelect />
-      <hr />
-      <ModeToggle />
-      <hr />
-      <Typography variant="body1" color="primary.main">
-        truongtrieu
-      </Typography>
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-
-      <AccessAlarmIcon />
-      <ThreeDRotation />
-
-      <HomeIcon color="primary" />
-      <HomeIcon color="secondary" />
-      <HomeIcon color="success" />
-      <HomeIcon color="action" />
-      <HomeIcon color="disabled" />
-      <HomeIcon sx={{ color: pink[300] }} />
-    </>
+    <Container disableGutters maxWidth={false} sx={{ height: "100vh" }}>
+      <Box
+        sx={{
+          height: (theme) => theme.workflow.appBarHeight,
+          display: "flex",
+          alignItems: "center",
+          backgroundColor: "primary.main",
+        }}
+      >
+        <ModeSelect />
+      </Box>
+      <Box
+        sx={{
+          height: (theme) => theme.workflow.boardBarHeight,
+          display: "flex",
+          alignItems: "center",
+          backgroundColor: "primary.dark",
+        }}
+      >
+        Boardbar
+      </Box>
+      <Box
+        sx={{
+          height: (theme) =>
+            `calc(100vh - ${theme.workflow.boardBarHeight} - ${theme.workflow.appBarHeight})`,
+          display: "flex",
+          alignItems: "center",
+          backgroundColor: "primary.main",
+        }}
+      >
+        content
+      </Box>
+    </Container>
   );
 }
 
