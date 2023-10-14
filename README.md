@@ -27,4 +27,6 @@
 
 # Mô tả dự án :
 
+- đây là phần 1 : frontend
+
 # Các chức năng chính của dự án bao gồm :
