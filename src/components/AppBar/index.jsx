@@ -8,10 +8,14 @@ const AppBar = () => {
         height: (theme) => theme.workflow.appBarHeight,
         display: "flex",
         alignItems: "center",
-        backgroundColor: "primary.main",
+        justifyContent: "space-between",
+        // backgroundColor: "primary.main",
       }}
     >
-      <ModeSelect />
+      <Box>WorkFlow</Box>
+      <Box>
+        <ModeSelect />
+      </Box>
     </Box>
   );
 };

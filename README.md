@@ -30,3 +30,5 @@
 - đây là phần 1 : frontend
 
 # Các chức năng chính của dự án bao gồm :
+
+15/10 : delay
