@@ -12,6 +12,9 @@ import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Badge from "@mui/material/Badge";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import Tooltip from "@mui/material/Tooltip";
+import Profiles from "./Menu/Profiles";
 
 const AppBar = () => {
   return (
@@ -59,16 +62,26 @@ const AppBar = () => {
 
       {/* AppBar right */}
       <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+        {/* search */}
         <TextField
           id="filled-search"
           label="Search..."
           type="search"
           size="small"
         />
+        {/* darkmode */}
         <ModeSelect />
-        <Badge color="secondary" variant="dot">
-          <NotificationsNoneIcon sx={{ cursor: "pointer" }} />
-        </Badge>
+        {/*  */}
+        <Tooltip title="Notifications">
+          <Badge color="secondary" variant="dot">
+            <NotificationsNoneIcon sx={{ cursor: "pointer" }} />
+          </Badge>
+        </Tooltip>
+        <Tooltip title="Information">
+          <HelpOutlineIcon sx={{ cursor: "pointer" }} />
+        </Tooltip>
+        {/* account */}
+        <Profiles />
       </Box>
     </Box>
   );
