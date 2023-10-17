@@ -25,6 +25,7 @@ const AppBar = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
+        overflowX: "auto",
       }}
     >
       {/* AppBar left */}
@@ -45,15 +46,22 @@ const AppBar = () => {
             WorkFlow
           </Typography>
         </Box>
-        {/* dropdown menu */}
-        <WorkSpaces />
-        <Recent />
-        <Starred />
-        <Templates />
 
+        {/* responsive */}
+        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          {/* dropdown menu */}
+          <WorkSpaces />
+          <Recent />
+          <Starred />
+          <Templates />
+        </Box>
         {/* buton create */}
         <Button
-          sx={{ textTransform: "capitalize", padding: "4px" }}
+          sx={{
+            textTransform: "capitalize",
+            padding: "4px",
+            marginRight: "15px",
+          }}
           variant="contained"
         >
           Create
@@ -68,6 +76,7 @@ const AppBar = () => {
           label="Search..."
           type="search"
           size="small"
+          sx={{ minWidth: "120px" }}
         />
         {/* darkmode */}
         <ModeSelect />

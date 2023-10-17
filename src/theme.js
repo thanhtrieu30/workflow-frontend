@@ -7,6 +7,15 @@ const theme = extendTheme({
     appBarHeight: "60px",
     boardBarHeight: "68px",
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 715,
+      md: 1089,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
   colorSchemes: {
     light: {
       palette: {
@@ -23,6 +32,23 @@ const theme = extendTheme({
   },
 
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          "*::-webkit-scrollbar": {
+            width: "8px",
+            height: "8px",
+          },
+          "*::-webkit-scrollbar-thumb": {
+            backgroundColor: "#bdc3c7",
+            borderRadius: "8px",
+          },
+          "*::-webkit-scrollbar-thumb:hover": {
+            backgroundColor: "#00b894",
+          },
+        },
+      },
+    },
     // Name of the component
     MuiOutlinedInput: {
       styleOverrides: {
