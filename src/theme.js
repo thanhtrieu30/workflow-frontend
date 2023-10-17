@@ -21,7 +21,40 @@ const theme = extendTheme({
       },
     },
   },
+
+  components: {
+    // Name of the component
+    MuiOutlinedInput: {
+      styleOverrides: {
+        // Name of the slot
+        root: ({ theme }) => ({
+          fontSize: "0.875rem",
+          color: theme.palette.primary.main,
+          ".MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.primary.light,
+          },
+          "&:hover": {
+            ".MuiOutlinedInput-notchedOutline": {
+              borderColor: theme.palette.primary.main,
+            },
+          },
+          "& fieldset": {
+            borderWidth: "1px !important",
+          },
+        }),
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          color: theme.palette.primary.main,
+          fontSize: "0.875rem",
+        }),
+      },
+    },
+  },
   // ...other properties
+  // MuiOutlinedInput
 });
 
 export default theme;

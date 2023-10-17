@@ -10,7 +10,7 @@ import Tooltip from "@mui/material/Tooltip";
 import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
-import bery from "../../../assets/bery.jpg";
+import beryImg from "../../../assets/bery.jpg";
 
 const Profiles = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -32,7 +32,7 @@ const Profiles = () => {
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
         >
-          <Avatar sx={{ width: 28, height: 28 }} src={bery}>
+          <Avatar sx={{ width: 28, height: 28 }} src={beryImg}>
             M
           </Avatar>
         </IconButton>
@@ -49,7 +49,7 @@ const Profiles = () => {
         <MenuItem onClick={handleClose}>
           <Avatar
             sx={{ width: 28, height: 28, marginRight: "10px" }}
-            src={bery}
+            src={beryImg}
           />
           Profile
         </MenuItem>
