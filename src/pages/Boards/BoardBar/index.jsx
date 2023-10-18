@@ -70,6 +70,8 @@ const BoardBar = () => {
             textTransform: "capitalize",
             display: "flex",
             alignItems: "flex-start",
+            color: (theme) =>
+              theme.palette.mode === "dark" ? "white" : "primary.main",
           }}
           variant="outlined"
           startIcon={<GroupAddIcon />}

@@ -1,4 +1,4 @@
-import { deepOrange, teal, cyan, orange } from "@mui/material/colors";
+import { deepOrange, teal, pink, deepPurple } from "@mui/material/colors";
 import { experimental_extendTheme as extendTheme } from "@mui/material/styles";
 
 // Create a theme instance.
@@ -25,8 +25,8 @@ const theme = extendTheme({
     },
     dark: {
       palette: {
-        primary: cyan,
-        secondary: orange,
+        primary: deepPurple,
+        secondary: pink,
       },
     },
   },
@@ -73,7 +73,7 @@ const theme = extendTheme({
     MuiInputLabel: {
       styleOverrides: {
         root: ({ theme }) => ({
-          color: theme.palette.primary.main,
+          color: theme.palette.mode === "dark" ? "white" : "primary.main",
           fontSize: "0.875rem",
         }),
       },

@@ -30,13 +30,21 @@ const AppBar = () => {
     >
       {/* AppBar left */}
       <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-        <AppsIcon sx={{ color: "primary.main" }} />
+        <AppsIcon
+          sx={{
+            color: (theme) =>
+              theme.palette.mode === "dark" ? "white" : "primary.main",
+          }}
+        />
         {/* logo */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
           <SvgIcon
             component={trelloLogo}
             inheritViewBox
-            sx={{ color: "primary.main" }}
+            sx={{
+              color: (theme) =>
+                theme.palette.mode === "dark" ? "white" : "primary.main",
+            }}
           />
           <Typography
             variant="button"
@@ -76,7 +84,10 @@ const AppBar = () => {
           label="Search..."
           type="search"
           size="small"
-          sx={{ minWidth: "120px" }}
+          sx={{
+            minWidth: "120px",
+            color: "white",
+          }}
         />
         {/* darkmode */}
         <ModeSelect />

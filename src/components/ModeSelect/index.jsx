@@ -29,7 +29,15 @@ const ModeSelect = () => {
           </div>
         </MenuItem>
         <MenuItem value="dark">
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
+              color: (theme) =>
+                theme.palette.mode === "dark" ? "white" : "primary.main",
+            }}
+          >
             <NightsStayIcon fontSize="small" /> Dark
           </Box>
         </MenuItem>

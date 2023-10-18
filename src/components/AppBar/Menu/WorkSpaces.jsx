@@ -34,6 +34,8 @@ const WorkSpaces = () => {
           textTransform: "capitalize",
           display: "flex",
           alignItems: "center",
+          color: (theme) =>
+            theme.palette.mode === "dark" ? "white" : "primary.main",
         }}
       >
         Workspaces
