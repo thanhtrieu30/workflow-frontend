@@ -33,7 +33,10 @@ const BoardBar = () => {
         alignItems: "center",
         justifyContent: "space-between",
         overflowX: "auto",
-        borderTop: "1px solid #00bfa5",
+        borderTop: (theme) =>
+          theme.palette.mode === "light"
+            ? "1px solid #00bfa5"
+            : "1px solid #7b1fa2",
         gap: 2,
       }}
     >
@@ -79,7 +82,7 @@ const BoardBar = () => {
           Invite
         </Button>
         <AvatarGroup
-          max={6}
+          max={4}
           sx={{
             "& .MuiAvatar-root": {
               width: 34,
