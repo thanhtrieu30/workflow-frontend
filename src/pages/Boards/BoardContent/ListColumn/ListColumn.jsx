@@ -25,7 +25,8 @@ const ListColumn = () => {
           minWidth: "200px",
           maxWidth: "200px",
           mx: 2,
-          bgcolor: "#ffffff3d",
+          bgcolor: (theme) =>
+            theme.palette.mode === "dark" ? "#ffffff3d" : "primary.main",
           height: "fit-content",
           borderRadius: "10px",
         }}
