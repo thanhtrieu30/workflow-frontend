@@ -32,3 +32,4 @@
 # Các chức năng chính của dự án bao gồm :
 
 15/10 : delay
+20/10 : delay
