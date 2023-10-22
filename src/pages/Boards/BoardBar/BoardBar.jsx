@@ -11,6 +11,7 @@ import img1 from "../../../assets/bery.jpg";
 import img2 from "../../../assets/bery2.jpg";
 import Button from "@mui/material/Button";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import { formatLetter } from "~/utils/formatLetter";
 
 const menuBoard = {
   color: "primary.main",
@@ -23,7 +24,7 @@ const menuBoard = {
   },
 };
 
-const BoardBar = () => {
+const BoardBar = ({ board }) => {
   return (
     <Box
       px={2}
@@ -44,13 +45,13 @@ const BoardBar = () => {
         <Chip
           sx={menuBoard}
           icon={<DashboardIcon />}
-          label="To-do-list"
+          label={board.title}
           clickable
         />
         <Chip
           sx={menuBoard}
           icon={<PublicIcon />}
-          label="Public/Private"
+          label={formatLetter(board?.type)}
           clickable
         />
         <Chip
