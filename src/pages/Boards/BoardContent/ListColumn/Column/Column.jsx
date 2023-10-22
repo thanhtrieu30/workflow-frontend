@@ -19,7 +19,7 @@ import AddIcon from "@mui/icons-material/Add";
 import PanToolIcon from "@mui/icons-material/PanTool";
 import ListCards from "./ListCards/ListCards";
 
-const Column = () => {
+const Column = ({ column }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -53,7 +53,7 @@ const Column = () => {
         }}
       >
         <Typography variant="h6" sx={{ fontWeight: "bold", fontSize: "1rem" }}>
-          Name
+          {column?.title}
         </Typography>
         <Box>
           <Tooltip title="More Option">
@@ -108,7 +108,7 @@ const Column = () => {
         </Box>
       </Box>
       {/* content item box */}
-      <ListCards />
+      <ListCards card={column?.cards} />
 
       {/* footer item box */}
       <Box

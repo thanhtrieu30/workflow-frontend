@@ -1,5 +1,5 @@
 // dưới đây là data của trang web khi chưa có backend ^^~
-
+import img from "../assets/bery2.jpg";
 export const mockData = {
   board: {
     _id: "board-id-01",
@@ -30,8 +30,7 @@ export const mockData = {
             columnId: "column-id-01",
             title: "Title of card 01",
             description: "Markdown Syntax (sẽ ở khóa nâng cao nhé)",
-            cover:
-              "https://trungquandev.com/wp-content/uploads/2022/07/fair-mern-stack-advanced-banner-trungquandev.jpg",
+            cover: img,
             memberIds: ["test-user-id-01"],
             comments: ["test comment 01", "test comment 02"],
             attachments: [

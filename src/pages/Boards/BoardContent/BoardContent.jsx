@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import ListColumn from "./ListColumn/ListColumn";
 
-const BoardContent = () => {
+const BoardContent = ({ board }) => {
   return (
     <Box
       sx={{
@@ -14,7 +14,7 @@ const BoardContent = () => {
       }}
     >
       {/* List column */}
-      <ListColumn />
+      <ListColumn column={board.columns} />
 
       {/* Column */}
     </Box>
