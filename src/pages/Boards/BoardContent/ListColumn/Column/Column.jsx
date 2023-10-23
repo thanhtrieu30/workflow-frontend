@@ -14,10 +14,10 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
-
 import AddIcon from "@mui/icons-material/Add";
 import PanToolIcon from "@mui/icons-material/PanTool";
 import ListCards from "./ListCards/ListCards";
+import { mapOrder } from "~/utils/sortArray";
 
 const Column = ({ column }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -28,6 +28,9 @@ const Column = ({ column }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const sortCard = mapOrder(column?.cards, column?.cardOrderIds, "_id");
+
   return (
     <Box
       sx={{
@@ -108,7 +111,7 @@ const Column = ({ column }) => {
         </Box>
       </Box>
       {/* content item box */}
-      <ListCards card={column?.cards} />
+      <ListCards card={sortCard} />
 
       {/* footer item box */}
       <Box
