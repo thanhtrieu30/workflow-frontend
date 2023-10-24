@@ -18,8 +18,17 @@ import AddIcon from "@mui/icons-material/Add";
 import PanToolIcon from "@mui/icons-material/PanTool";
 import ListCards from "./ListCards/ListCards";
 import { mapOrder } from "~/utils/sortArray";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 const Column = ({ column }) => {
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({ id: column._id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -33,6 +42,10 @@ const Column = ({ column }) => {
 
   return (
     <Box
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
       sx={{
         minWidth: "300px",
         maxWidth: "300px",
