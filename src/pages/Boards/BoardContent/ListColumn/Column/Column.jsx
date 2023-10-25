@@ -26,7 +26,7 @@ const Column = ({ column }) => {
     useSortable({ id: column._id });
 
   const style = {
-    transform: CSS.Transform.toString(transform),
+    transform: CSS.Translate.toString(transform),
     transition,
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -66,6 +66,7 @@ const Column = ({ column }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
+          cursor: "pointer",
         }}
       >
         <Typography variant="h6" sx={{ fontWeight: "bold", fontSize: "1rem" }}>

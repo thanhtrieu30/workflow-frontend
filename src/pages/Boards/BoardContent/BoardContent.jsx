@@ -2,11 +2,29 @@ import Box from "@mui/material/Box";
 import ListColumn from "./ListColumn/ListColumn";
 import { mapOrder } from "~/utils/sortArray";
 import { DndContext } from "@dnd-kit/core";
+import { useEffect, useState } from "react";
+import { arrayMove } from "@dnd-kit/sortable";
 
 const BoardContent = ({ board }) => {
-  const sortColumn = mapOrder(board?.columns, board?.columnOrderIds, "_id");
+  const [orderedColumns, setOrderedColumn] = useState([]);
+
+  useEffect(() => {
+    setOrderedColumn(mapOrder(board?.columns, board?.columnOrderIds, "_id"));
+  }, [board]);
+
+  const handleDragEnd = (e) => {
+    const { active, over } = e;
+    if (active.id !== over.id) {
+      const oldIndex = orderedColumns.findIndex((c) => c._id === active.id);
+      const newIndex = orderedColumns.findIndex((c) => c._id === over.id);
+      const dndOrderedColumn = arrayMove(orderedColumns, oldIndex, newIndex);
+      const dndOrderedColumnIds = dndOrderedColumn.map((c) => c._id);
+      console.log(dndOrderedColumnIds);
+      setOrderedColumn(dndOrderedColumn);
+    }
+  };
   return (
-    <DndContext>
+    <DndContext onDragEnd={handleDragEnd}>
       <Box
         sx={{
           height: (theme) => theme.workflow.boardContentHeight,
@@ -18,7 +36,7 @@ const BoardContent = ({ board }) => {
         }}
       >
         {/* List column */}
-        <ListColumn column={sortColumn} />
+        <ListColumn column={orderedColumns} />
 
         {/* Column */}
       </Box>
