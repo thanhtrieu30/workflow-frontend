@@ -11,11 +11,11 @@ import { useEffect, useState } from "react";
 import { arrayMove } from "@dnd-kit/sortable";
 
 const BoardContent = ({ board }) => {
-  const pointerSensor = useSensor(PointerSensor, {
-    activationConstraint: {
-      distance: 10,
-    },
-  });
+  // const pointerSensor = useSensor(PointerSensor, {
+  //   activationConstraint: {
+  //     distance: 10,
+  //   },
+  // });
 
   const mouseSensor = useSensor(PointerSensor, {
     // Require the mouse to move by 10 pixels before activating
