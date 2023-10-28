@@ -26,7 +26,7 @@ const BoardContent = ({ board }) => {
   const touchSensor = useSensor(PointerSensor, {
     // Press delay of 250ms, with tolerance of 5px of movement
     activationConstraint: {
-      delay: 250,
+      delay: 20,
       tolerance: 5,
     },
   });

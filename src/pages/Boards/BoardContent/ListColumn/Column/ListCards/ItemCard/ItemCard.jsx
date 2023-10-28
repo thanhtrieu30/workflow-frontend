@@ -7,7 +7,24 @@ import InsertCommentIcon from "@mui/icons-material/InsertComment";
 import AttachmentIcon from "@mui/icons-material/Attachment";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 const ItemCard = ({ card }) => {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: card._id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : undefined,
+  };
+
   const removeActions = () => {
     return (
       !!card?.memberIds?.length ||
@@ -16,7 +33,13 @@ const ItemCard = ({ card }) => {
     );
   };
   return (
-    <Card sx={{ cursor: "pointer", overflow: "unset" }}>
+    <Card
+      ref={setNodeRef}
+      style={style}
+      {...attributes}
+      {...listeners}
+      sx={{ cursor: "pointer", overflow: "unset" }}
+    >
       {card?.cover && <CardMedia sx={{ height: 140 }} image={card?.cover} />}
       <CardContent sx={{ p: 1.5, "&:last-child": { p: 1.5 } }}>
         <Typography>{card.title}</Typography>
