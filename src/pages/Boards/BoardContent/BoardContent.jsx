@@ -8,6 +8,7 @@ import {
   useSensors,
   DragOverlay,
   defaultDropAnimationSideEffects,
+  closestCorners,
 } from "@dnd-kit/core";
 import { useEffect, useState } from "react";
 import { arrayMove } from "@dnd-kit/sortable";
@@ -118,8 +119,9 @@ const BoardContent = ({ board }) => {
         if (nextActiveColumn) {
           // xóa card ở column active
           nextActiveColumn.cards = nextActiveColumn.cards.filter(
-            (card) => card._id !== activeCardData
+            (card) => card._id !== activeCardId
           );
+          console.log(nextActiveColumn.cards);
           // cap nhap lai mang dữ liệu
           nextActiveColumn.cardOrderIds = nextActiveColumn.cards.map(
             (card) => card._id
@@ -130,6 +132,7 @@ const BoardContent = ({ board }) => {
           nextOverColumn.cards = nextOverColumn.cards.filter(
             (card) => card._id !== activeCardId
           );
+          console.log(nextOverColumn.cards);
           // them card dang kéo vào vi tri index mới
           nextOverColumn.cards = nextOverColumn.cards.toSpliced(
             newCardIndex,
@@ -178,6 +181,7 @@ const BoardContent = ({ board }) => {
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
       sensors={sensors}
+      collisionDetection={closestCorners}
     >
       <Box
         sx={{
