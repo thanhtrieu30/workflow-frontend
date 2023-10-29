@@ -17,7 +17,7 @@ const ItemCard = ({ card }) => {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: card._id });
+  } = useSortable({ id: card._id, data: { ...card } });
 
   const style = {
     transform: CSS.Transform.toString(transform),

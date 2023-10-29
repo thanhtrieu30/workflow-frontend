@@ -29,7 +29,7 @@ const Column = ({ column }) => {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: column._id });
+  } = useSortable({ id: column._id, data: { ...column } });
 
   const style = {
     transform: CSS.Translate.toString(transform),
